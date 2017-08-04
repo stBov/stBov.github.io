@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Oracle job | Shijie Shi Blog</title>
+
+  
+  <meta name="author" content="Shijie Shi">
+  
+
+  
+  <meta name="description" content="About oracle job create and drop">
+  
+
+  
+  
+  <meta name="keywords" content="Oracle">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Oracle job"/>
+
+  <meta property="og:site_name" content="Shijie Shi Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Shijie Shi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Shijie Shi Blog</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Oracle job</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/28/oracle-job/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-28T02:17:02.050Z">
+          2017-07-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="About-oracle-job-create-and-drop"><a href="#About-oracle-job-create-and-drop" class="headerlink" title="About oracle job create and drop"></a>About oracle job create and drop</h1><a id="more"></a>
+<p>select job, what, next_date, next_sec, sysdate, failures, broken,interval    from user_jobs a;<br>select * from user_jobs  job–编号</p>
+<p>–创建定时任务<br>declare  t_ryzw number;<br>begin<br>dbms_job.submit(t_ryzw,’RYZW;’,sysdate,’sysdate+1/1440’);<br>commit;<br>end;<br>/<br>–删除定时任务<br>exec dbms_job.remove(23)</p>
+<p>1:每分钟执行<br>Interval =&gt; TRUNC(sysdate,’mi’) + 1/ (24*60)<br>或<br>Interval =&gt; sysdate+1/1440<br>2:每天定时执行<br>例如：每天的凌晨1点执行<br>Interval =&gt; TRUNC(sysdate) + 1 +1/ (24)<br>3:每周定时执行<br>例如：每周一凌晨1点执行<br>Interval =&gt; TRUNC(next_day(sysdate,’星期一’))+1/24<br>4:每月定时执行<br>例如：每月1日凌晨1点执行<br>Interval =&gt;TRUNC(LAST_DAY(SYSDATE))+1+1/24<br>5:每季度定时执行<br>例如每季度的第一天凌晨1点执行<br>Interval =&gt; TRUNC(ADD_MONTHS(SYSDATE,3),’Q’) + 1/24<br>6:每半年定时执行<br>例如：每年7月1日和1月1日凌晨1点<br>Interval =&gt; ADD_MONTHS(trunc(sysdate,’yyyy’),6)+1/24<br>7:每年定时执行<br>例如：每年1月1日凌晨1点执行<br>Interval =&gt;ADD_MONTHS(trunc(sysdate,’yyyy’),12)+1/24</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Oracle/">Oracle</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Shijie Shi
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

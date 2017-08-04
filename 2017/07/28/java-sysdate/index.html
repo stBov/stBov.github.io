@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java sysdate | Shijie Shi Blog</title>
+
+  
+  <meta name="author" content="Shijie Shi">
+  
+
+  
+  <meta name="description" content="date java operate">
+  
+
+  
+  
+  <meta name="keywords" content="后端">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Java sysdate"/>
+
+  <meta property="og:site_name" content="Shijie Shi Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Shijie Shi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Shijie Shi Blog</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Java sysdate</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/28/java-sysdate/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-28T02:17:02.057Z">
+          2017-07-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="date-java-operate"><a href="#date-java-operate" class="headerlink" title="date java operate"></a>date java operate</h1><a id="more"></a>
+<p>–定时任务。每月初跑一次<br>ScheduledExecutorService service = Executors<br>  .newSingleThreadScheduledExecutor();<br>Calendar c=Calendar.getInstance();<br>int day=c.get(Calendar.DAY_OF_MONTH); //获取当月中天数的最大值， 即当月的日期数<br>if(day==1) {<br>  service.scheduleAtFixedRate(runnable, 1, 1, TimeUnit.SECONDS);//首次执行的延时时间;定时执行的间隔时间<br>}<br>–获取当前时间<br>SimpleDateFormat df = new SimpleDateFormat(pattern);//设置日期格式<br>return df.format(new Date());</p>
+<p>Date date = new Date();//获取当前时间<br>Calendar calendar = Calendar.getInstance();<br>calendar.setTime(date);<br>calendar.add(Calendar.YEAR, -1);//当前时间减去一年，即一年前的时间<br>calendar.add(Calendar.MONTH, -1);//当前时间前去一个月，即一个月前的时间<br>calendar.getTime();//获取一年前的时间，或者一个月前的时间</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/后端/">后端</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Shijie Shi
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Oracle tablespace_tmp create | Shijie Shi Blog</title>
+
+  
+  <meta name="author" content="Shijie Shi">
+  
+
+  
+  <meta name="description" content="tablespace_tmp oracle create">
+  
+
+  
+  
+  <meta name="keywords" content="Oracle">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Oracle tablespace_tmp create"/>
+
+  <meta property="og:site_name" content="Shijie Shi Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Shijie Shi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Shijie Shi Blog</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Oracle tablespace_tmp create</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/28/oracle-tablespace-tmp/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-28T02:17:02.067Z">
+          2017-07-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="tablespace-tmp-oracle-create"><a href="#tablespace-tmp-oracle-create" class="headerlink" title="tablespace_tmp oracle create"></a>tablespace_tmp oracle create</h1><a id="more"></a>
+<p>//创建临时表空间<br>create temporary tablespace sdxcpt_temp<br>tempfile ‘D:/app/Administrator/product/11.2.0/dbhome_1/oradata/sample/sdxcpt_temp.dbf’<br>size 32m<br>autoextend on<br>next 32m maxsize 2048m<br>extent management local;<br>//创建数据表空间<br>create tablespace sdxcpt_date<br>logging<br>datafile ‘D:/app/Administrator/product/11.2.0/dbhome_1/oradata/sample/sdxcpt_date.dbf’<br>size 32m<br>autoextend on<br>next 32m maxsize 2048m<br>extent management local;<br>//创建用户并指定表空间<br>create user sdxcpt identified by sdxcpt<br>default tablespace sdxcpt_date<br>temporary tablespace sdxcpt_temp;<br>//给用户授予权限<br>grant connect,resource to sdxcpt;</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Oracle/">Oracle</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Shijie Shi
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

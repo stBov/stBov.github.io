@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Oracle tablespace | Shijie Shi Blog</title>
+
+  
+  <meta name="author" content="Shijie Shi">
+  
+
+  
+  <meta name="description" content="tablespace oracle search">
+  
+
+  
+  
+  <meta name="keywords" content="Oracle">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Oracle tablespace"/>
+
+  <meta property="og:site_name" content="Shijie Shi Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Shijie Shi Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Shijie Shi Blog</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Oracle tablespace</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/28/oracle-tablespaces/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-28T02:17:02.059Z">
+          2017-07-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="tablespace-oracle-search"><a href="#tablespace-oracle-search" class="headerlink" title="tablespace oracle search"></a>tablespace oracle search</h1><a id="more"></a>
+<p>–1、查看表空间的名称及大小<br>SELECT t.tablespace_name, round(SUM(bytes / (1024 <em> 1024)), 0) ts_size<br>FROM dba_tablespaces t, dba_data_files d<br>WHERE t.tablespace_name = d.tablespace_name<br>GROUP BY t.tablespace_name;<br>–2、查看表空间物理文件的名称及大小<br>SELECT tablespace_name,<br>file_id,<br>file_name,<br>round(bytes / (1024 </em> 1024), 0) total_space<br>FROM dba_data_files<br>ORDER BY tablespace_name;<br>–3、查看回滚段名称及大小<br>SELECT segment_name,<br>tablespace_name,<br>r.status,<br>(initial_extent / 1024) initialextent,<br>(next_extent / 1024) nextextent,<br>max_extents,<br>v.curext curextent<br>FROM dba_rollback_segs r, v$rollstat v<br>WHERE r.segment_id = v.usn(+)<br>ORDER BY segment_name;<br>–4、查看控制文件<br>SELECT NAME FROM v$controlfile;<br>–5、查看日志文件<br>SELECT MEMBER FROM v$logfile;<br>–6、查看表空间的使用情况<br>SELECT SUM(bytes) / (1024 <em> 1024) AS free_space, tablespace_name<br>FROM dba_free_space<br>GROUP BY tablespace_name;<br>SELECT a.tablespace_name,<br>a.bytes total,<br>b.bytes used,<br>c.bytes free,<br>(b.bytes </em> 100) / a.bytes “% USED “,<br>(c.bytes <em> 100) / a.bytes “% FREE “<br>FROM sys.sm$ts_avail a, sys.sm$ts_used b, sys.sm$ts_free c<br>WHERE a.tablespace_name = b.tablespace_name<br>AND a.tablespace_name = c.tablespace_name;<br>–7、查看数据库库对象<br>SELECT owner, object_type, status, COUNT(</em>) count#<br>FROM all_objects<br>GROUP BY owner, object_type, status;<br>–8、查看数据库的版本　<br>SELECT version<br>FROM product_component_version<br>WHERE substr(product, 1, 6) = ‘Oracle’;<br>–9、查看数据库的创建日期和归档方式<br>SELECT created, log_mode, log_mode FROM v$database;</p>
+<p>–10、查询表空间的剩余使用量<br>SELECT UPPER(F.TABLESPACE_NAME) “表空间名”,<br>　　D.TOT_GROOTTE_MB “表空间大小(M)”,<br>　　D.TOT_GROOTTE_MB - F.TOTAL_BYTES “已使用空间(M)”,<br>　　TO_CHAR(ROUND((D.TOT_GROOTTE_MB - F.TOTAL_BYTES) / D.TOT_GROOTTE_MB <em> 100,2),’990.99’) || ‘%’ “使用比”,<br>　　F.TOTAL_BYTES “空闲空间(M)”,<br>　　F.MAX_BYTES “最大块(M)”<br>　　FROM (SELECT TABLESPACE_NAME,<br>　　ROUND(SUM(BYTES) / (1024 </em> 1024), 2) TOTAL_BYTES,<br>　　ROUND(MAX(BYTES) / (1024 <em> 1024), 2) MAX_BYTES<br>　　FROM SYS.DBA_FREE_SPACE<br>　　GROUP BY TABLESPACE_NAME) F,<br>　　(SELECT DD.TABLESPACE_NAME,<br>　　 ROUND(SUM(DD.BYTES) / (1024 </em> 1024), 2) TOT_GROOTTE_MB<br>　　FROM SYS.DBA_DATA_FILES DD<br>　　GROUP BY DD.TABLESPACE_NAME) D<br>　　WHERE D.TABLESPACE_NAME = F.TABLESPACE_NAME<br>　　ORDER BY 1;</p>
+<hr>
+<p>SELECT a.tablespace_name “表空间名”,<br>total “表空间大小”,<br>free “表空间剩余大小”,<br>(total - free) “表空间使用大小”,<br>total / (1024 <em> 1024 </em> 1024) “表空间大小(G)”,<br>free / (1024 <em> 1024 </em> 1024) “表空间剩余大小(G)”,<br>(total - free) / (1024 <em> 1024 </em> 1024) “表空间使用大小(G)”,<br>round((total - free) / total, 4) * 100 “使用率 %”<br>FROM (SELECT tablespace_name, SUM(bytes) free<br>FROM dba_free_space<br>GROUP BY tablespace_name) a,<br>(SELECT tablespace_name, SUM(bytes) total<br>FROM dba_data_files<br>GROUP BY tablespace_name) b<br>WHERE a.tablespace_name = b.tablespace_name </p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Oracle/">Oracle</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Shijie Shi
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
