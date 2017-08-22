@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Oracle job | Shijie Blog</title>
+  <title>你的影子 | Shijie Blog</title>
 
   
   <meta name="author" content="Shijie Shi">
   
 
   
-  <meta name="description" content="about oracle job create and drop">
+  <meta name="description" content="昨夜风吹打过 凛凛只觉寒冷">
   
 
   
   
-  <meta name="keywords" content="Oracle">
+  <meta name="keywords" content="文章">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="Oracle job"/>
+  <meta property="og:title" content="你的影子"/>
 
   <meta property="og:site_name" content="Shijie Blog"/>
 
@@ -67,15 +67,15 @@
 
   
     
-    <h3 class="article-title"><span>Oracle job</span></h3>
+    <h3 class="article-title"><span>你的影子</span></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2017/07/28/oracle-job/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-28T02:17:02.050Z">
-          2017-07-28
+      <a href="/2017/08/22/你的影子/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-22T01:22:14.000Z">
+          2017-08-22
         </time>
       </a>
     </span>
@@ -87,10 +87,11 @@
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="about-oracle-job-create-and-drop"><a href="#about-oracle-job-create-and-drop" class="headerlink" title="about oracle job create and drop"></a>about oracle job create and drop</h1><a id="more"></a>
-<p>select job, what, next_date, next_sec, sysdate, failures, broken,interval    from user_jobs a;<br>select * from user_jobs  job–编号</p>
-<p>–创建定时任务<br>declare  t_ryzw number;<br>begin<br>dbms_job.submit(t_ryzw,’RYZW;’,sysdate,’sysdate+1/1440’);<br>commit;<br>end;<br>/<br>–删除定时任务<br>exec dbms_job.remove(23)</p>
-<p>1:每分钟执行<br>Interval =&gt; TRUNC(sysdate,’mi’) + 1/ (24*60)<br>或<br>Interval =&gt; sysdate+1/1440<br>2:每天定时执行<br>例如：每天的凌晨1点执行<br>Interval =&gt; TRUNC(sysdate) + 1 +1/ (24)<br>3:每周定时执行<br>例如：每周一凌晨1点执行<br>Interval =&gt; TRUNC(next_day(sysdate,’星期一’))+1/24<br>4:每月定时执行<br>例如：每月1日凌晨1点执行<br>Interval =&gt;TRUNC(LAST_DAY(SYSDATE))+1+1/24<br>5:每季度定时执行<br>例如每季度的第一天凌晨1点执行<br>Interval =&gt; TRUNC(ADD_MONTHS(SYSDATE,3),’Q’) + 1/24<br>6:每半年定时执行<br>例如：每年7月1日和1月1日凌晨1点<br>Interval =&gt; ADD_MONTHS(trunc(sysdate,’yyyy’),6)+1/24<br>7:每年定时执行<br>例如：每年1月1日凌晨1点执行<br>Interval =&gt;ADD_MONTHS(trunc(sysdate,’yyyy’),12)+1/24</p>
+        <h1 id="昨夜风吹打过-凛凛只觉寒冷"><a href="#昨夜风吹打过-凛凛只觉寒冷" class="headerlink" title="昨夜风吹打过 凛凛只觉寒冷"></a>昨夜风吹打过 凛凛只觉寒冷</h1><a id="more"></a>
+<p>昨夜风吹打过<br>凛凛只觉寒冷<br>却闻自言恐吓<br>不觉深思旧行</p>
+<p>潭水中点点污浊<br>透月望去更是真<br>我心抵行想离去<br>却少影子无力行</p>
+<p>树旁之人在演唱<br>无人却言哥哥见<br>寻过昏黄路灯旁<br>怎说回望旧事凉</p>
+<p>前路荆棘昏暗<br>旧行却是仍光明</p>
 
       
     </div>
@@ -107,7 +108,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Oracle/">Oracle</a>
+        <a href="/tags/文章/">文章</a>
     </span>
     
 
