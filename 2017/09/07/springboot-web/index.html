@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>你的影子 | Shijie Blog | 老嵩悟尘缘，洪炉一点雪</title>
+  <title>springboot-web | Shijie Blog | 老嵩悟尘缘，洪炉一点雪</title>
 
   
   <meta name="author" content="Shijie Shi">
   
 
   
-  <meta name="description" content="记哥哥">
+  <meta name="description" content="restful and thymeleaf">
   
 
   
   
-  <meta name="keywords" content="文章">
+  <meta name="keywords" content="">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="你的影子"/>
+  <meta property="og:title" content="springboot-web"/>
 
   <meta property="og:site_name" content="Shijie Blog"/>
 
@@ -67,15 +67,15 @@
 
   
     
-    <h3 class="article-title"><span>你的影子</span></h3>
+    <h3 class="article-title"><span>springboot-web</span></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2017/08/22/你的影子/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-08-22T01:22:14.000Z">
-          2017-08-22
+      <a href="/2017/09/07/springboot-web/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-09-07T03:24:23.000Z">
+          2017-09-07
         </time>
       </a>
     </span>
@@ -87,11 +87,13 @@
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="记哥哥"><a href="#记哥哥" class="headerlink" title="记哥哥"></a>记哥哥</h1><a id="more"></a>
-<p>昨夜风吹打过<br>凛凛只觉寒冷<br>却闻自言恐吓<br>不觉深思旧行</p>
-<p>潭水中点点污浊<br>透月望去更是真<br>我心抵行想离去<br>却少影子无力行</p>
-<p>树旁之人在演唱<br>无人却言哥哥见<br>寻过昏黄路灯旁<br>怎说回望旧事凉</p>
-<p>前路荆棘昏暗<br>旧行却是仍光明</p>
+        <h1 id="restful-and-thymeleaf"><a href="#restful-and-thymeleaf" class="headerlink" title="restful and thymeleaf"></a>restful and thymeleaf</h1><a id="more"></a>
+<p>springboot restful 架构,是springboot快速发布的web架构，用于rpc调用和请求。<br>springboot thymeleaf 架构，是springboot-thymeleaf的快速web架构，用于请求html界面展示。</p>
+<p>restful架构在Controller 使用 @RestController注解<br>调用方法中使用 @RequestMapping(“/saveuser”) 返回json或其他值即可</p>
+<p>thymeleaf架构是在Controller 使用 @Controller 注解<br> @RequestMapping(“/index”)<br>    public String greeting() {<br>        return “index”;<br>    }<br>配置文件需要配置：</p>
+<p>##thymeleaf start<br>spring.thymeleaf.mode=HTML5<br>spring.thymeleaf.encoding=UTF-8<br>spring.thymeleaf.content-type=text/html</p>
+<p>##开发时关闭缓存,不然没法看到实时页面<br>spring.thymeleaf.cache=false</p>
+<p>##thymeleaf end    即可</p>
 
       
     </div>
@@ -103,13 +105,6 @@
 
     
 
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/文章/">文章</a>
-    </span>
     
 
     </div>
