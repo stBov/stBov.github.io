@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java异常小记.md | Shijie Blog | 老嵩悟尘缘，洪炉一点雪</title>
+
+  
+  <meta name="author" content="Shijie Shi">
+  
+
+  
+  <meta name="description" content="java异常：Throwable、Error、Exception区别">
+  
+
+  
+  
+  <meta name="keywords" content="java">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="java异常小记.md"/>
+
+  <meta property="og:site_name" content="Shijie Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Shijie Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Shijie Blog</a>
+    </h1>
+    <p class="site-description">老嵩悟尘缘，洪炉一点雪</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>java异常小记.md</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/10/13/java异常小记/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-10-13T09:02:31.000Z">
+          2017-10-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>java异常：Throwable、Error、Exception区别</p>
+<a id="more"></a>
+<h3 id="具体区别"><a href="#具体区别" class="headerlink" title="具体区别"></a>具体区别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Error和Exception都继承自Throwable超类；</div><div class="line">其中区别：</div><div class="line"></div><div class="line">Exception：</div><div class="line">1.可以是可被控制（checked）或者不可控制（unchecked）；</div><div class="line">2.表示一个由程序员导致的错误；</div><div class="line">3.应该在应用程序级被处理；</div><div class="line">4.程序自身异常，IO、DB、HTTP网络等异常，需Catch。</div><div class="line"></div><div class="line"></div><div class="line">Error：</div><div class="line">1.总是不可控制的（unchecked）；</div><div class="line">2.经常用来表示系统错误或者底层资源错误；</div><div class="line">3.如果可能的话，应该在系统级被捕捉；</div><div class="line">4.多为JVM异常，重大异常，如内存溢出等，不推荐Catch。</div><div class="line"></div><div class="line">运行时异常，表示无法让程序恢复的异常，导致的原因通常是因为执行了错误的操作，建议终止程序，因此，编译器不检查这些异常。</div><div class="line">受检查异常，是表示程序可以处理的异常，也即表示程序可以修复（由程序自己接受异常并且做出处理）， 所以称之为受检查异常。</div><div class="line"></div><div class="line">而Error就属于运行时异常，Exception属于受检查异常。</div></pre></td></tr></table></figure>
+<p>异常可以是自己主动抛出的，错误是系统发出的</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/java/">java</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Shijie Shi
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
