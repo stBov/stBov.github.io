@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>go学习整理 | Shijie Blog | 老嵩悟尘缘，洪炉一点雪</title>
+
+  
+  <meta name="author" content="Shijie Shi">
+  
+
+  
+  <meta name="description" content="整理一下近一个月学习go的成果。">
+  
+
+  
+  
+  <meta name="keywords" content="go">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="go学习整理"/>
+
+  <meta property="og:site_name" content="Shijie Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Shijie Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Shijie Blog</a>
+    </h1>
+    <p class="site-description">老嵩悟尘缘，洪炉一点雪</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>go学习整理</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/09/28/go学习整理/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-09-28T15:19:30.000Z">
+          2018-09-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>整理一下近一个月学习go的成果。</p>
+<a id="more"></a>
+<h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Go 语言被设计成一门应用于搭载 Web 服务器，存储集群或类似用途的巨型中央服务器的系统编程语言。</div><div class="line">对于高性能分布式系统领域而言，Go 语言无疑比大多数其它语言有着更高的开发效率。</div><div class="line">它提供了海量并行的支持，这对于游戏服务端的开发而言是再好不过了</div></pre></td></tr></table></figure>
+<h4 id="关于外界的理解，以及go特性"><a href="#关于外界的理解，以及go特性" class="headerlink" title="关于外界的理解，以及go特性"></a>关于外界的理解，以及go特性</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">计算机软件经历了数十年的发展，形成了多种学术流派，有面向过程编程、面向对象编程、函数式编程、面向消息编程等，这些思想究竟孰优孰劣，众说纷纭。</div><div class="line">除了OOP外，近年出现了一些小众的编程哲学，Go语言对这些思想亦有所吸收。例如，Go语言接受了函数式编程的一些想法，支持匿名函数与闭包。</div><div class="line">再如，Go语言接受了以Erlang语言为代表的面向消息编程思想，支持goroutine和通道，并推荐使用消息而不是共享内存来进行并发编程。</div><div class="line">总体来说，Go语言是一个非常现代化的语言，精小但非常强大。</div><div class="line">Go 语言最主要的特性：</div><div class="line">自动垃圾回收</div><div class="line">更丰富的内置类型</div><div class="line">函数多返回值</div><div class="line">错误处理</div><div class="line">匿名函数和闭包</div><div class="line">类型和接口</div><div class="line">并发编程</div><div class="line">反射</div><div class="line">语言交互性</div></pre></td></tr></table></figure>
+<h3 id="自我理解"><a href="#自我理解" class="headerlink" title="自我理解"></a>自我理解</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">go语言是一种全新的语言，建立在unix,c,c++，以及面向对象编程和函数编程等。</div><div class="line">语言本身就支持并发操作（不同于java8，线程处理，它属于另一种概念“协程”），并发程序依靠的是goroutine和channel。</div><div class="line">goroutine相当于进程，协程概念，go自身就有对线程协程的回收机制。</div><div class="line">channel 管道，提供了go的基础通信机制（相当于socket通道）。它运用于接收goroutine分发的数据，并进行准确分配数据。</div><div class="line">go语言支持 指针，这个是C的核心的概念之一，用于内存地址指向（指针大小：寻址空间大小），指针的定义方便了数据的复用，并且处理快速。</div><div class="line">go语言支持 结构体，这个也是C的核心概念之一，也和java对象类似。用于结构化数据。</div><div class="line">go语言关键字 defer make go等，都很好用。</div></pre></td></tr></table></figure>
+<h3 id="go关键字介绍"><a href="#go关键字介绍" class="headerlink" title="go关键字介绍"></a>go关键字介绍</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var和const参考2.2Go语言基础里面的变量和常量申明</div><div class="line">package和import已经有过短暂的接触</div><div class="line">func 用于定义函数和方法</div><div class="line"><span class="built_in">return</span> 用于从函数返回</div><div class="line">defer 用于类似析构函数（收尾工作）</div><div class="line">go 用于并发</div><div class="line">select 用于选择不同类型的通讯</div><div class="line">interface 用于定义接口，参考2.6小节</div><div class="line">struct 用于定义抽象数据类型，参考2.5小节</div><div class="line"><span class="built_in">break</span>、<span class="keyword">case</span>、<span class="built_in">continue</span>、<span class="keyword">for</span>、fallthrough、<span class="keyword">else</span>、<span class="keyword">if</span>、switch、goto、default这些参考2.3流程介绍里面</div><div class="line">chan用于channel通讯</div><div class="line"><span class="built_in">type</span>用于声明自定义类型</div><div class="line">map用于声明map类型数据</div><div class="line">range用于读取slice、map、channel数据 make可以分配空间</div></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/go/">go</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2018 Shijie Shi
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
