@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java基础 | Shijie Blog | 老嵩悟尘缘，洪炉一点雪</title>
+
+  
+  <meta name="author" content="Shijie Shi">
+  
+
+  
+  <meta name="description" content="java">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Java基础"/>
+
+  <meta property="og:site_name" content="Shijie Blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Shijie Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Shijie Blog</a>
+    </h1>
+    <p class="site-description">老嵩悟尘缘，洪炉一点雪</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Java基础</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/04/17/Java基础/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-04-17T06:58:59.000Z">
+          2020-04-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>java</p>
+<a id="more"></a>
+<p>[TOC]</p>
+<h1 id="Java基础内容"><a href="#Java基础内容" class="headerlink" title="Java基础内容"></a>Java基础内容</h1><h2 id="面试基础内容"><a href="#面试基础内容" class="headerlink" title="面试基础内容"></a>面试基础内容</h2><blockquote>
+<p>String不可以被继承，因为String类有final修饰符，而final修饰的类是不能被继承的，实现细节不允许改变。平常我们定义的String str=”abc”(直接赋一个字面量);其实和String str=new String(“abc”)(通过构造器构造)还是有差异的</p>
+</blockquote>
+<h3 id="String，-Stringbuffer，-StringBuilder-的区别"><a href="#String，-Stringbuffer，-StringBuilder-的区别" class="headerlink" title="String， Stringbuffer， StringBuilder 的区别"></a>String， Stringbuffer， StringBuilder 的区别</h3><blockquote>
+<p>String 字符串常量(final修饰，不可被继承)，String是常量，当创建之后即不能更改。(可以通过StringBuffer和StringBuilder创建String对象(常用的两个字符串操作类)。)<br>StringBuffer 字符串变量（线程安全）,其也是final类别的，不允许被继承，其中的绝大多数方法都进行了同步处理，包括常用的Append方法也做了同步处理(synchronized修饰)。其自jdk1.0起就已经出现。其toString方法会进行对象缓存，以减少元素复制开销<br>StringBuilder 字符串变量（非线程安全）其自jdk1.5起开始出现。与StringBuffer一样都继承和实现了同样的接口和类，方法除了没使用synch修饰以外基本一致，不同之处在于最后toString的时候，会直接返回一个新对象。</p>
+</blockquote>
+<h3 id="ArrayList-和-LinkedList-有什么区别"><a href="#ArrayList-和-LinkedList-有什么区别" class="headerlink" title="ArrayList 和 LinkedList 有什么区别"></a>ArrayList 和 LinkedList 有什么区别</h3><blockquote>
+<p>ArrayList和LinkedList都实现了List接口，有以下的不同点：<br>1、ArrayList是基于索引的数据接口，它的底层是数组。它可以以O(1)时间复杂度对元素进行随机访问。与此对应，LinkedList是以元素列表的形式存储它的数据，每一个元素都和它的前一个和后一个元素链接在一起，在这种情况下，查找某个元素的时间复杂度是O(n)。<br>2、相对于ArrayList，LinkedList的插入，添加，删除操作速度更快，因为当元素被添加到集合任意位置的时候，不需要像数组那样重新计算大小或者是更新索引。<br>3、LinkedList比ArrayList更占内存，因为LinkedList为每一个节点存储了两个引用，一个指向前一个元素，一个指向下一个元素。</p>
+</blockquote>
+<h3 id="讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当-new-的时候，-他们的执行顺序"><a href="#讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当-new-的时候，-他们的执行顺序" class="headerlink" title="讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当 new 的时候， 他们的执行顺序"></a>讲讲类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，当 new 的时候， 他们的执行顺序</h3><blockquote>
+<p>此题考察的是类加载器实例化时进行的操作步骤（加载–&gt;连接-&gt;初始化）。<br>父类静态代变量、<br>父类静态代码块、<br>子类静态变量、<br>子类静态代码块、<br>父类非静态变量（父类实例成员变量）、<br>父类构造函数、<br>子类非静态变量（子类实例成员变量）、<br>子类构造函数。</p>
+</blockquote>
+<h3 id="抽象类和接口的区别，类可以继承多个类么，接口可以继承多个接口么-类可以实现多个接口么"><a href="#抽象类和接口的区别，类可以继承多个类么，接口可以继承多个接口么-类可以实现多个接口么" class="headerlink" title="抽象类和接口的区别，类可以继承多个类么，接口可以继承多个接口么,类可以实现多个接口么"></a>抽象类和接口的区别，类可以继承多个类么，接口可以继承多个接口么,类可以实现多个接口么</h3><blockquote>
+<p>1、抽象类和接口都不能直接实例化，如果要实例化，抽象类变量必须指向实现所有抽象方法的子类对象，接口变量必须指向实现所有接口方法的类对象。<br>2、抽象类要被子类继承，接口要被类实现。<br>3、接口只能做方法申明，抽象类中可以做方法申明，也可以做方法实现<br>4、接口里定义的变量只能是公共的静态的常量，抽象类中的变量是普通变量。<br>5、抽象类里的抽象方法必须全部被子类所实现，如果子类不能全部实现父类抽象方法，那么该子类只能是抽象类。同样，一个实现接口的时候，如不能全部实现接口方法，那么该类也只能为抽象类。<br>6、抽象方法只能申明，不能实现。abstract void abc();不能写成abstract void abc(){}。<br>7、抽象类里可以没有抽象方法<br>8、如果一个类里有抽象方法，那么这个类只能是抽象类<br>9、抽象方法要被实现，所以不能是静态的，也不能是私有的。<br>10、接口可继承接口，并可多继承接口，但类只能单根继承。</p>
+</blockquote>
+<h3 id="final-的用途"><a href="#final-的用途" class="headerlink" title="final 的用途"></a>final 的用途</h3><blockquote>
+<p>类、变量、方法<br>final 修饰的类叫最终类，该类不能被继承。<br>final 修饰的方法不能被重写。<br>final 修饰的变量叫常量，常量必须初始化，初始化之后值就不能被修改</p>
+</blockquote>
+<h3 id="写出三种单例模式实现"><a href="#写出三种单例模式实现" class="headerlink" title="写出三种单例模式实现"></a>写出三种单例模式实现</h3><p>懒汉式单例(线程不安全)，饿汉式单例(多个单例)，双重检查(线程安全)等</p>
+<h3 id="深拷贝和浅拷贝区别"><a href="#深拷贝和浅拷贝区别" class="headerlink" title="深拷贝和浅拷贝区别"></a>深拷贝和浅拷贝区别</h3><p>深拷贝复制值，浅拷贝复制引用对象</p>
+<h3 id="和-equals-的区别是什么"><a href="#和-equals-的区别是什么" class="headerlink" title="== 和 equals 的区别是什么"></a>== 和 equals 的区别是什么</h3><blockquote>
+<p>== 对于基本类型来说是值比较(不难理解,八种基本数据类型是可以有确定值的)，对于引用类型来说是比较的是引用(数组、类、接口没有确定值)；而 equals 默认情况下是引用比较，只是很多类重新写了 equals 方法，比如 String、Integer 等把它变成了值比较，所以一般情况下 equals 比较的是值是否相等</p>
+</blockquote>
+<h3 id="java-中的-Math-round-1-5-等于多少？"><a href="#java-中的-Math-round-1-5-等于多少？" class="headerlink" title="java 中的 Math.round(-1.5) 等于多少？"></a>java 中的 Math.round(-1.5) 等于多少？</h3><blockquote>
+<p>等于 -1，因为在数轴上取值时，中间值（0.5）向右取整，所以正 0.5 是往上取整，负 0.5 是直接舍弃。同理,Math.round(1.5) = 2</p>
+</blockquote>
+<h3 id="String-类的常用方法都有那些？"><a href="#String-类的常用方法都有那些？" class="headerlink" title="String 类的常用方法都有那些？"></a>String 类的常用方法都有那些？</h3><blockquote>
+<p>indexOf()：返回指定字符的索引。<br>charAt()：返回指定索引处的字符。<br>replace()：字符串替换。<br>trim()：去除字符串两端空白。<br>split()：分割字符串，返回一个分割后的字符串数组。<br>getBytes()：返回字符串的 byte 类型数组。<br>length()：返回字符串长度。<br>toLowerCase()：将字符串转成小写字母。<br>toUpperCase()：将字符串转成大写字符。<br>substring()：截取字符串。<br>equals()：字符串比较。</p>
+</blockquote>
+<h3 id="字符串反转方法"><a href="#字符串反转方法" class="headerlink" title="字符串反转方法"></a>字符串反转方法</h3><p>stringbuffer、stringBuilder的 AbstractStringBuilder.reverse方法。</p>
+<h3 id="java-中-IO-流分为几种"><a href="#java-中-IO-流分为几种" class="headerlink" title="java 中 IO 流分为几种"></a>java 中 IO 流分为几种</h3><blockquote>
+<p>按功能来分：输入流（input）、输出流（output）。<br>按类型来分：字节流和字符流。<br>字节流和字符流的区别是：字节流按 8 位传输以字节为单位输入输出数据，字符流按 16 位传输以字符为单位输入输出数据</p>
+</blockquote>
+<h3 id="Files的常用方法都有哪些"><a href="#Files的常用方法都有哪些" class="headerlink" title="Files的常用方法都有哪些"></a>Files的常用方法都有哪些</h3><blockquote>
+<p>Files.exists()：检测文件路径是否存在。<br>Files.createFile()：创建文件。<br>Files.createDirectory()：创建文件夹。<br>Files.delete()：删除一个文件或目录。<br>Files.copy()：复制文件。<br>Files.move()：移动文件。<br>Files.size()：查看文件个数。<br>Files.read()：读取文件。<br>Files.write()：写入文件。</p>
+</blockquote>
+<h3 id="如何实现数组和-List-之间的转换"><a href="#如何实现数组和-List-之间的转换" class="headerlink" title="如何实现数组和 List 之间的转换"></a>如何实现数组和 List 之间的转换</h3><blockquote>
+<p>List转换成为数组：调用ArrayList的toArray方法。</p>
+<p>数组转换成为List：调用Arrays的asList方法。</p>
+<p>如何实现数组和 List 之间的转换List转换成为数组：调用ArrayList的toArray方法。</p>
+<p>数组转换成为List：调用Arrays的asList方法。</p>
+</blockquote>
+<h3 id="创建线程池有哪几种方式"><a href="#创建线程池有哪几种方式" class="headerlink" title="创建线程池有哪几种方式"></a>创建线程池有哪几种方式</h3><ol>
+<li><p>newFixedThreadPool(int nThreads) 创建一个固定长度的线程池，每当提交一个任务就创建一个线程，直到达到线程池的最大数量，这时线程规模将不再变化，当线程发生未预期的错误而结束时，线程池会补充一个新的线程。</p>
+</li>
+<li><p>newCachedThreadPool() 创建一个可缓存的线程池，如果线程池的规模超过了处理需求，将自动回收空闲线程，而当需求增加时，则可以自动添加新线程，线程池的规模不存在任何限制。</p>
+</li>
+<li><p>newSingleThreadExecutor() 这是一个单线程的Executor，它创建单个工作线程来执行任务，如果这个线程异常结束，会创建一个新的来替代它；它的特点是能确保依照任务在队列中的顺序来串行执行。</p>
+</li>
+<li><p>newScheduledThreadPool(int corePoolSize)创建了一个固定长度的线程池，而且以延迟或定时的方式来执行任务，类似于Timer。</p>
+</li>
+</ol>
+<h3 id="线程池中-submit-和-execute-方法有什么区别"><a href="#线程池中-submit-和-execute-方法有什么区别" class="headerlink" title="线程池中 submit()和 execute()方法有什么区别"></a>线程池中 submit()和 execute()方法有什么区别</h3><p>接收的参数不一样submit有返回值，而execute没有 submit方便Exception处理</p>
+<p>###　在 java 程序中怎么保证多线程的运行安全线程安全在三个方面体现：</p>
+<blockquote>
+<p>原子性：提供互斥访问，同一时刻只能有一个线程对数据进行操作，（atomic,synchronized）</p>
+<p>可见性：一个线程对主内存的修改可以及时地被其他线程看到，（synchronized,volatile）</p>
+<p>有序性：一个线程观察其他线程中的指令执行顺序，由于指令重排序，该观察结果一般杂乱无序，（happens-before原则）</p>
+</blockquote>
+<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h1 id="Jvm"><a href="#Jvm" class="headerlink" title="Jvm"></a>Jvm</h1><h1 id="Springboot"><a href="#Springboot" class="headerlink" title="Springboot"></a>Springboot</h1><h1 id="Jekins持续发布"><a href="#Jekins持续发布" class="headerlink" title="Jekins持续发布"></a>Jekins持续发布</h1><h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h2 id="zookeeper能做什么，做了什么？"><a href="#zookeeper能做什么，做了什么？" class="headerlink" title="zookeeper能做什么，做了什么？"></a>zookeeper能做什么，做了什么？</h2><p>1.命名服务  2.配置管理  3.集群管理  4.分布式锁 5.队列管理</p>
+<h3 id="两种选举算法："><a href="#两种选举算法：" class="headerlink" title="两种选举算法："></a>两种选举算法：</h3><p>1.base paxos</p>
+<p>2.fast paxos 默认</p>
+<h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p><a href="https://tableconvert.com" target="_blank" rel="external">https://tableconvert.com</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2020 Shijie Shi
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
